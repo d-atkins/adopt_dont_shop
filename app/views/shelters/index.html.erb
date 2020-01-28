@@ -1,2 +1,4 @@
 <h1> Shelters </h1>
-<%= @shelters -%>
+<% @shelters.each do |shelter| %>
+  <h2>Name: <%= shelter.name -%></h2>
+<% end %>

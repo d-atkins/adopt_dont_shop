@@ -5,6 +5,7 @@ RSpec.describe "from the shelters index page" do
     visit "/shelters/"
 
     click_link "New Shelter"
+
     expect(current_path).to eq("/shelters/new")
 
     expect(page).to have_content("Enter details for a new shelter:")
@@ -15,12 +16,14 @@ RSpec.describe "from the shelters index page" do
     expect(page).to have_content('Zip:')
   end
 
-  it "fills form and clicks submit" do
+  it "I can fill the form and click submit" do
     Shelter.create(name: "Shelter A", address: "123 Fake St", city: "Las Vegas", state: "WY", zip: "12345")
     Shelter.create(name: "Dog City", address: "1923 Dog Ln", city: "Doggington", state: "CO", zip: "80414")
     new_info = {name: "Cool Dogs Palace", address: "89123 Cool St", city: "Cool City", state: "Coolorado", zip: "88888"}
+
     visit "/shelters/"
     click_link "New Shelter"
+
     expect(current_path).to eq("/shelters/new")
 
     fill_in 'shelter[name]', with: new_info[:name]
@@ -32,6 +35,7 @@ RSpec.describe "from the shelters index page" do
     click_button("Create Shelter")
 
     expect(current_path).to eq('/shelters')
+    
     expect(page).to have_content("Cool Dogs Palace")
   end
 end

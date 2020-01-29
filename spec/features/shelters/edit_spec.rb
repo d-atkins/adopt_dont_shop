@@ -8,12 +8,14 @@ RSpec.describe "from the shelter show page" do
     visit "/shelters/#{shelter_1.id}"
     click_link "Update Shelter"
 
-    expect(page).to have_content("Update Shelter")
-    expect(page).to have_content('Name:')
-    expect(page).to have_content('Address:')
-    expect(page).to have_content('City:')
-    expect(page).to have_content('State:')
-    expect(page).to have_content('Zip:')
+    expect(current_path).to eq("/shelters/#{shelter_1.id}/edit")
+
+    expect(page).to have_content("Update shelter")
+    expect(page).to have_content('Name')
+    expect(page).to have_content('Address')
+    expect(page).to have_content('City')
+    expect(page).to have_content('State')
+    expect(page).to have_content('Zip')
   end
 
   it "I can fill the update form and click submit" do

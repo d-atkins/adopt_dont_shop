@@ -9,11 +9,11 @@ RSpec.describe "from the shelters index page" do
     expect(current_path).to eq("/shelters/new")
 
     expect(page).to have_content("Enter details for a new shelter:")
-    expect(page).to have_content('Name:')
-    expect(page).to have_content('Address:')
-    expect(page).to have_content('City:')
-    expect(page).to have_content('State:')
-    expect(page).to have_content('Zip:')
+    expect(page).to have_content('Name')
+    expect(page).to have_content('Address')
+    expect(page).to have_content('City')
+    expect(page).to have_content('State')
+    expect(page).to have_content('Zip')
   end
 
   it "I can fill the form and click submit" do
@@ -35,7 +35,7 @@ RSpec.describe "from the shelters index page" do
     click_button("Create Shelter")
 
     expect(current_path).to eq('/shelters')
-    
+
     expect(page).to have_content("Cool Dogs Palace")
   end
 end

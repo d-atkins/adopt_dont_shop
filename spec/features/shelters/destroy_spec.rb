@@ -9,7 +9,6 @@ describe "from a shelter show page" do
     click_button("Delete Shelter")
 
     expect(current_path).to eq('/shelters')
-
     expect(page).to have_content('Name: ' + shelter_1.name)
     expect(page).to_not have_content('Name: ' + shelter_2.name)
   end

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "from the shelter show page" do
   it "I can see info of a shelter on the show page" do
-    shelter_1 = Shelter.create(name: "Shelter A", address: "123 Fake St", city: "Las Vegas", state: "WY", zip: "12345")
+    shelter_1 = Shelter.create!(name: "Shelter A", address: "123 Fake St", city: "Las Vegas", state: "WY", zip: "12345")
 
     visit "/shelters/#{shelter_1.id}"
 

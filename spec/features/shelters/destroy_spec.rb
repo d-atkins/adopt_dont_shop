@@ -2,8 +2,8 @@ require 'rails_helper'
 
 describe "from a shelter show page" do
   it "I can click a delete button" do
-    shelter_1 = Shelter.create(name: "Shelter A", address: "123 Fake St", city: "Las Vegas", state: "WY", zip: "12345")
-    shelter_2 = Shelter.create(name: "delete me", address: "do", city: "it", state: "you", zip: "coward")
+    shelter_1 = Shelter.create!(name: "Shelter A", address: "123 Fake St", city: "Las Vegas", state: "WY", zip: "12345")
+    shelter_2 = Shelter.create!(name: "delete me", address: "do", city: "it", state: "you", zip: "coward")
 
     visit "/shelters/#{shelter_2.id}"
     click_button("Delete Shelter")

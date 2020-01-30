@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "from the pets index page of a shelter" do
+RSpec.describe "from the shelter/pets index" do
   it "I can see each pet that can be adopted from that shelter" do
     dog_city = Shelter.create!(name: "Dog City", address: "1923 Dog Ln", city: "Doggington", state: "CO", zip: "80414")
     cdp = Shelter.create!(name: "Cool Dogs Palace", address: "89123 Cool St", city: "Cool City", state: "Coolorado", zip: "88888")
@@ -32,13 +32,11 @@ RSpec.describe "from the pets index page of a shelter" do
     expect(page).to have_content(pet_1[:name])
     expect(page).to have_content(pet_1[:approximate_age])
     expect(page).to have_content(pet_1[:sex])
-    expect(page).to_not have_content(pet_1.shelter.name)
 
     expect(page).to have_css("img[src*='#{pet_2.image_path}']")
     expect(page).to have_content(pet_2[:name])
     expect(page).to have_content(pet_2[:approximate_age])
     expect(page).to have_content(pet_2[:sex])
-    expect(page).to_not have_content(pet_2.shelter.name)
 
     expect(page).to_not have_css("img[src*='#{pet_3.image_path}']")
     expect(page).to_not have_content(pet_3[:name])

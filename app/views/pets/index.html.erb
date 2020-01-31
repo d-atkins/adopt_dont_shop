@@ -1,6 +1,6 @@
 <h1> Pets </h1>
 <% @pets.each do |pet| %>
-  <p><img src="<%= pet.image_path %>"></p>
+  <p><%= image_tag(pet.image_path) %></p>
   <p>Name: <%= pet.name %></p>
   <p>Approx age: <%= pet.approximate_age %></p>
   <p>Sex: <%= pet.sex %></p>

@@ -95,7 +95,7 @@ BE Mod 2 Week 1 Solo Project
 ## User Stories
 
 ```
-[ ] done
+[x] done
 
 User Story 1, Deploy your application to Heroku
 
@@ -110,7 +110,7 @@ the application must be hosted on Heroku.
 Shelters are organizations that have pets available for adoption.
 
 ```
-[ ] done
+[x] done
 
 User Story 2, Shelter Index
 
@@ -120,7 +120,7 @@ Then I see the name of each shelter in the system
 ```
 
 ```
-[ ] done
+[x] done
 
 User Story 3, Shelter Show
 
@@ -135,7 +135,7 @@ Then I see the shelter with that id including the shelter's:
 ```
 
 ```
-[ ] done
+[x] done
 
 User Story 4, Shelter Creation
 
@@ -157,7 +157,7 @@ and I am redirected to the Shelter Index page where I see the new Shelter listed
 ```
 
 ```
-[ ] done
+[x] done
 
 User Story 5, Shelter Update
 
@@ -179,7 +179,7 @@ and I am redirected to the Shelter's Show page where I see the shelter's updated
 ```
 
 ```
-[ ] done
+[x] done
 
 User Story 6, Shelter Delete
 
@@ -198,7 +198,7 @@ and I am redirected to the shelter index page where I no longer see this shelter
 Pets can be adopted from the Shelter. Pets belong to a shelter.
 
 ```
-[ ] done
+[x] done
 
 User Story 7, Pet Index
 
@@ -213,7 +213,7 @@ Then I see each Pet in the system including the Pet's:
 ```
 
 ```
-[ ] done
+[x] done
 
 User Story 8, Shelter Pets Index
 
@@ -227,7 +227,7 @@ Then I see each Pet that can be adopted from that Shelter with that shelter_id i
 ```
 
 ```
-[ ] done
+[x] done
 
 User Story 9, Pet Show
 
@@ -243,7 +243,7 @@ Then I see the pet with that id including the pet's:
 ```
 
 ```
-[ ] done
+[x] done
 
 User Story 10, Shelter Pet Creation
 
@@ -266,14 +266,14 @@ and I am redirected to the Shelter Pets Index page where I can see the new pet l
 ```
 
 ```
-[ ] done
+[x] done
 
 User Story 11, Pet Update
 
 As a visitor
 When I visit a Pet Show page
 Then I see a link to update that Pet "Update Pet"
-When I click the link 
+When I click the link
 I am taken to '/pets/:id/edit' where I see a form to edit the pet's data including:
 - image
 - name
@@ -287,7 +287,7 @@ and I am redirected to the Pet Show page where I see the Pet's updated informati
 ```
 
 ```
-[ ] done
+[x] done
 
 User Story 12, Pet Delete
 

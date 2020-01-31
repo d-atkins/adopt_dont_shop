@@ -1,14 +1,14 @@
 <h3>Enter details for a new shelter:</h3>
 <%= form_tag("/shelters") do %>
   <%= label_tag :name %><br>
-  <%= text_field_tag 'shelter[name]' %><br><br>
+  <%= text_field_tag :name %><br><br>
   <%= label_tag :address %><br>
-  <%= text_field_tag 'shelter[address]' %><br><br>
+  <%= text_field_tag :address %><br><br>
   <%= label_tag :city %><br>
-  <%= text_field_tag 'shelter[city]' %><br><br>
+  <%= text_field_tag :city %><br><br>
   <%= label_tag :state %><br>
-  <%= text_field_tag 'shelter[state]' %><br><br>
+  <%= text_field_tag :state %><br><br>
   <%= label_tag :zip %><br>
-  <%= text_field_tag 'shelter[zip]' %><br><br>
+  <%= text_field_tag :zip %><br><br>
   <%= submit_tag "Create Shelter" %>
 <% end %>

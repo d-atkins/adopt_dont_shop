@@ -39,4 +39,34 @@ RSpec.describe "from the pets index page" do
     expect(page).to have_content(pet_2.sex)
     expect(page).to have_content(pet_2.shelter.name)
   end
+  it "I can get to the edit page of a pet" do
+    dog_city = Shelter.create!(
+      name: "Dog City",
+      address: "1923 Dog Ln",
+      city: "Doggington",
+      state: "CO",
+      zip: "80414")
+    pet_1 = Pet.create(
+      image_path: "https://i.pinimg.com/originals/a9/cf/64/a9cf6473ca327409108ab02d15cc06b0.jpg",
+      name: "Snoopy",
+      description: "beagle pup eh",
+      approximate_age: "6 months old",
+      sex: "male",
+      shelter: dog_city,
+      status: "adoptable")
+    Pet.create(
+      image_path: "https://upload.wikimedia.org/wikipedia/commons/2/2b/WelshCorgi.jpeg",
+      name: "Nana",
+      description: "super cute dog in need of home",
+      approximate_age: "4 years old",
+      sex: "female",
+      shelter: dog_city,
+      status: "adoptable")
+
+    visit '/pets'
+
+    click_link("Update Pet", match: :first)
+
+    expect(current_path).to eq("/pets/#{pet_1.id}/edit")
+  end
 end

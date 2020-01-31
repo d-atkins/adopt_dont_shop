@@ -16,7 +16,7 @@ describe "from the shelter show page" do
       zip: "coward")
 
     visit "/shelters/#{shelter_2.id}"
-    click_button("Delete Shelter")
+    click_link("Delete Shelter")
 
     expect(current_path).to eq('/shelters')
     expect(page).to have_content('Name: ' + shelter_1.name)

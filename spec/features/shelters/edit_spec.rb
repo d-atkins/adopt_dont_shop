@@ -16,7 +16,7 @@ RSpec.describe "from the shelter show page" do
     fill_in 'state', with: new_info[:state]
     fill_in 'zip', with: new_info[:zip]
 
-    click_button("Submit")
+    click_button("Update Shelter")
 
     expect(current_path).to eq("/shelters/#{shelter_1.id}")
     expect(page).to have_content("Name: #{new_info[:name]}")

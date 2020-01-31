@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "from the shelter show page" do
-  it "I can click update shelter, fill the update form, and click submit" do
+  it "I can get to the update page, fill in all fields of the update form, and submit the changes" do
     shelter_1 = Shelter.create!(name: "Shelter A", address: "123 Fake St", city: "Las Vegas", state: "WY", zip: "12345")
     new_info = {name: "Dog City", address: "1923 Dog Ln", city: "Doggington", state: "CO", zip: "80414"}
 

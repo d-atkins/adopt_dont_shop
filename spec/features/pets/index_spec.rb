@@ -122,4 +122,26 @@ RSpec.describe "from the pets index page" do
 
     expect(current_path).to eq("/shelters/#{dog_city.id}")
   end
+  it "I can click a pet name to get to its show page" do
+    dog_city = Shelter.create!(
+      name: "Dog City",
+      address: "1923 Dog Ln",
+      city: "Doggington",
+      state: "CO",
+      zip: "80414")
+    pet_1 = Pet.create(
+      image_path: "https://i.pinimg.com/originals/a9/cf/64/a9cf6473ca327409108ab02d15cc06b0.jpg",
+      name: "Snoopy",
+      description: "beagle pup eh",
+      approximate_age: "6 months old",
+      sex: "male",
+      shelter: dog_city,
+      status: "adoptable")
+
+    visit '/pets'
+
+    click_link(pet_1.name, match: :first)
+
+    expect(current_path).to eq("/pets/#{pet_1.id}")
+  end
 end

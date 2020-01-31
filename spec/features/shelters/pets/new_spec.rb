@@ -2,26 +2,34 @@ require 'rails_helper'
 
 RSpec.describe 'from the shelter pets index page' do
   it 'I can click the add a new pet link, fill the form, and click submit' do
-    dog_city = Shelter.create!(name: "Dog City", address: "1923 Dog Ln", city: "Doggington", state: "CO", zip: "80414")
-    pet_1 = Pet.create!(image_path: "https://i.pinimg.com/originals/a9/cf/64/a9cf6473ca327409108ab02d15cc06b0.jpg",
-            name: "Snoopy",
-            description: "beagle pup eh",
-            approximate_age: "6 months old",
-            sex: "male",
-            shelter: dog_city,
-            status: "adoptable")
-    pet_2 = Pet.create!(image_path: "https://upload.wikimedia.org/wikipedia/commons/2/2b/WelshCorgi.jpeg",
-            name: "Nana",
-            description: "super cute dog in need of home",
-            approximate_age: "4 years old",
-            sex: "female",
-            shelter: dog_city,
-            status: "adoptable")
-    new_info = {image_path: "https://cdn.mos.cms.futurecdn.net/g8PyY6xAhcndpQLLSkdPf-320-80.jpg",
-            name: "Capy'n Hook",
-            description: "dread of the seven seas",
-            approximate_age: "400 years old?",
-            sex: "male"}
+    dog_city = Shelter.create!(
+      name: "Dog City",
+      address: "1923 Dog Ln",
+      city: "Doggington",
+      state: "CO",
+      zip: "80414")
+    pet_1 = Pet.create!(
+      image_path: "https://i.pinimg.com/originals/a9/cf/64/a9cf6473ca327409108ab02d15cc06b0.jpg",
+      name: "Snoopy",
+      description: "beagle pup eh",
+      approximate_age: "6 months old",
+      sex: "male",
+      shelter: dog_city,
+      status: "adoptable")
+    pet_2 = Pet.create!(
+      image_path: "https://upload.wikimedia.org/wikipedia/commons/2/2b/WelshCorgi.jpeg",
+      name: "Nana",
+      description: "super cute dog in need of home",
+      approximate_age: "4 years old",
+      sex: "female",
+      shelter: dog_city,
+      status: "adoptable")
+    new_info = {
+      image_path: "https://cdn.mos.cms.futurecdn.net/g8PyY6xAhcndpQLLSkdPf-320-80.jpg",
+      name: "Capy'n Hook",
+      description: "dread of the seven seas",
+      approximate_age: "400 years old?",
+      sex: "male"}
 
     visit "/shelters/#{dog_city.id}/pets"
     click_link('Add a New Adoptable Pet')

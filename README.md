@@ -373,7 +373,7 @@ Then that link takes me to that Pet's show page
 ```
 
 ```
-[ ] done
+[x] done
 
 User Story 19, Pet Index Link
 
@@ -383,7 +383,7 @@ Then I see a link at the top of the page that takes me to the Pet Index
 ```
 
 ```
-[ ] done
+[x] done
 
 User Story 20, Shelter Index Link
 
@@ -393,7 +393,7 @@ Then I see a link at the top of the page that takes me to the Shelter Index
 ```
 
 ```
-[ ] done
+[x] done
 
 User Story 21, Shelter Pet Index Link
 

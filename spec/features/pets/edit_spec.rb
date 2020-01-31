@@ -41,6 +41,6 @@ RSpec.describe "from the pet show page" do
     expect(page).to have_content("like 60 years old")
     expect(page).to have_content("male")
     expect(page).to have_content("adoptable")
-    expect(page).to_not have_content(pet_2[:name])
+    expect(page).to_not have_content(pet_2.name)
   end
 end

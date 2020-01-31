@@ -28,11 +28,11 @@ RSpec.describe "from the pet show page" do
     visit "pets/#{pet_1.id}"
 
     expect(page).to have_css("img[src*='#{pet_1.image_path}']")
-    expect(page).to have_content(pet_1[:name])
-    expect(page).to have_content(pet_1[:description])
-    expect(page).to have_content(pet_1[:approximate_age])
-    expect(page).to have_content(pet_1[:sex])
-    expect(page).to have_content(pet_1[:status])
-    expect(page).to_not have_content(pet_2[:name])
+    expect(page).to have_content(pet_1.name)
+    expect(page).to have_content(pet_1.description)
+    expect(page).to have_content(pet_1.approximate_age)
+    expect(page).to have_content(pet_1.sex)
+    expect(page).to have_content(pet_1.status)
+    expect(page).to_not have_content(pet_2.name)
   end
 end

@@ -42,18 +42,18 @@ RSpec.describe "from the shelter/pets index" do
     visit "/shelters/#{dog_city.id}/pets"
 
     expect(page).to have_css("img[src*='#{pet_1.image_path}']")
-    expect(page).to have_content(pet_1[:name])
-    expect(page).to have_content(pet_1[:approximate_age])
-    expect(page).to have_content(pet_1[:sex])
+    expect(page).to have_content(pet_1.name)
+    expect(page).to have_content(pet_1.approximate_age)
+    expect(page).to have_content(pet_1.sex)
 
     expect(page).to have_css("img[src*='#{pet_2.image_path}']")
-    expect(page).to have_content(pet_2[:name])
-    expect(page).to have_content(pet_2[:approximate_age])
-    expect(page).to have_content(pet_2[:sex])
+    expect(page).to have_content(pet_2.name)
+    expect(page).to have_content(pet_2.approximate_age)
+    expect(page).to have_content(pet_2.sex)
 
     expect(page).to_not have_css("img[src*='#{pet_3.image_path}']")
-    expect(page).to_not have_content(pet_3[:name])
-    expect(page).to_not have_content(pet_3[:approximate_age])
+    expect(page).to_not have_content(pet_3.name)
+    expect(page).to_not have_content(pet_3.approximate_age)
     expect(page).to_not have_content(pet_3.shelter.name)
   end
 end

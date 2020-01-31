@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'from the shelter pets index page' do
-  it 'I can click the add a new pet link, fill the form, and click submit' do
+  it 'I can get to the new pet page, fill the form, and submit it' do
     dog_city = Shelter.create!(
       name: "Dog City",
       address: "1923 Dog Ln",

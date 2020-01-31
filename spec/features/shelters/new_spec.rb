@@ -1,11 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe "from the shelters index page" do
-  it "I can click the new shelter link, fill the form, and click submit" do
+  it "I can get to the new shelter page, fill the form, and submit it" do
     Shelter.create!(
       name: "Shelter A",
       address: "123 Fake St",
-      city: "Las Vegas", 
+      city: "Las Vegas",
       state: "WY",
       zip: "12345")
     Shelter.create!(

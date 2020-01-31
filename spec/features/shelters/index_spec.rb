@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe "from the shelters index page" do
-  it "I can see names of all shelters" do
+  it "I can see names of all of the shelters" do
     shelter_1 = Shelter.create!(
-      name: "Shelter A", 
+      name: "Shelter A",
       address: "123 Fake St",
       city: "Las Vegas",
       state: "WY",

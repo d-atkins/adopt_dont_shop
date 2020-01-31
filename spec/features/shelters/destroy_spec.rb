@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe "from a shelter show page" do
-  it "I can click a delete button" do
+describe "from the shelter show page" do
+  it "I can delete a shelter from the database" do
     shelter_1 = Shelter.create!(
       name: "Shelter A",
       address: "123 Fake St",

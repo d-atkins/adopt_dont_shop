@@ -31,10 +31,9 @@ RSpec.describe "As a visitor: " do
 
       expect(current_path).to eq("/pets")
       expect(page).to have_css("img[src*='#{pet_1.image_path}']")
-      expect(page).to have_content(pet_1.name)
-      expect(page).to have_content(pet_1.approximate_age)
-      expect(page).to have_content(pet_1.sex)
-      expect(page).to have_content(pet_1.shelter.name)
+      expect(page).to have_content("Name: #{pet_1.name}")
+      expect(page).to have_content("Age: ~#{pet_1.approximate_age}")
+      expect(page).to have_content("Sex: #{pet_1.sex}")
 
       expect(page).to_not have_css("img[src*='#{pet_2.image_path}']")
       expect(page).to_not have_content(pet_2.name)

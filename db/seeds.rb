@@ -9,17 +9,19 @@ Pet.destroy_all
 Shelter.destroy_all
 mikes = Shelter.create(name: "Mike's Shelter", address: "1331 17th Street", city: "Denver", state: "CO", zip: "80202")
 megs = Shelter.create(name: "Meg's Shelter", address: "150 Main Street", city: "Hershey", state: "PA", zip: "17033")
-Pet.create(image_path: "https://i.pinimg.com/originals/a9/cf/64/a9cf6473ca327409108ab02d15cc06b0.jpg",
-          name: "Snoopy",
-          description: "beagle pup eh",
-          approximate_age: "6 months old",
-          sex: "male",
-          shelter: mikes,
-          status: "adoptable")
-Pet.create(image_path: "https://upload.wikimedia.org/wikipedia/commons/2/2b/WelshCorgi.jpeg",
-          name: "Nana",
-          description: "description",
-          approximate_age: "4 years old",
-          sex: "female",
-          shelter: megs,
-          status: "adoptable")
+Pet.create(
+  image_path: "https://i.pinimg.com/originals/a9/cf/64/a9cf6473ca327409108ab02d15cc06b0.jpg",
+  name: "Snoopy",
+  description: "beagle pup eh",
+  approximate_age: "6 months old",
+  sex: "male",
+  shelter: mikes,
+  status: "adoptable")
+Pet.create(
+  image_path: "https://upload.wikimedia.org/wikipedia/commons/2/2b/WelshCorgi.jpeg",
+  name: "Nana",
+  description: "description",
+  approximate_age: "4 years old",
+  sex: "female",
+  shelter: megs,
+  status: "adoptable")

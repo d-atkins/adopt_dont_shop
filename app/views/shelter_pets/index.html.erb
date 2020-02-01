@@ -1,12 +1,15 @@
-<h1><%= link_to(@shelter.name, "/shelters/#{@shelter.id}") %></h1>
-<h2> Pets </h2>
-<% @pets.each do |pet| %>
-  <p><%= image_tag(pet.image_path) %></p>
-  <p>Name: <%= link_to(pet.name, "/pets/#{pet.id}") %></p>
-  <p>Approx age: <%= pet.approximate_age %></p>
-  <p>Sex: <%= pet.sex %></p>
-  <%= link_to 'Update Pet', "/pets/#{pet.id}/edit" %>
-  <%= link_to 'Delete Pet', "/pets/#{pet.id}", method: :delete %><br>
-<% end %>
+<div class="content">
+  <h1><%= link_to(@shelter.name, "/shelters/#{@shelter.id}", class: "name") %> - Pets</h1>
+  <p><%= link_to 'Add a New Adoptable Pet', "/shelters/#{@shelter.id}/pets/new" %></p>
+  <% @pets.each do |pet| %>
+    <div class="card">
+      <h3>Name: <%= link_to(pet.name, "/pets/#{pet.id}", class: "right big name") %></h3>
+      <p><%= image_tag(pet.image_path) %></p>
+      <p>Age: <span class='right big'>~<%= pet.approximate_age %></span></p>
+      <p>Sex: <span class='right big'><%= pet.sex %></span></p>
+      <%= link_to 'Update Pet', "/pets/#{pet.id}/edit", class: "small left" %>
+      <%= link_to 'Delete Pet', "/pets/#{pet.id}", method: :delete, class: "small right delete" %><br>
+    </div>
+  <% end %>
 
-<p><%= link_to 'Add a New Adoptable Pet', "/shelters/#{@shelter.id}/pets/new" %></p>
+</div>

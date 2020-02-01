@@ -18,12 +18,17 @@ RSpec.describe "As a visitor: " do
 
       visit "/shelters/#{shelter_1.id}"
 
-      expect(page).to have_content("Name: #{shelter_1.name}")
-      expect(page).to have_content("Address: #{shelter_1.address}")
-      expect(page).to have_content("City: #{shelter_1.city}")
-      expect(page).to have_content("State: #{shelter_1.state}")
-      expect(page).to have_content("Zip: #{shelter_1.zip}")
-      expect(page).to_not have_content("Name: #{shelter_2.name}")
+      expect(page).to have_content("Name: #{shelter_1.name}", count: 1)
+      expect(page).to have_content("Address: #{shelter_1.address}", count: 1)
+      expect(page).to have_content("City: #{shelter_1.city}", count: 1)
+      expect(page).to have_content("State: #{shelter_1.state}", count: 1)
+      expect(page).to have_content("Zip: #{shelter_1.zip}", count: 1)
+      
+      expect(page).to_not have_content(shelter_2.name)
+      expect(page).to_not have_content(shelter_2.address)
+      expect(page).to_not have_content(shelter_2.city)
+      expect(page).to_not have_content(shelter_2.state)
+      expect(page).to_not have_content(shelter_2.zip)
     end
   end
 end

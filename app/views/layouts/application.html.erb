@@ -13,8 +13,10 @@
       <h1>Adopt, Don't Shop</h1>
     </header>
     <nav>
-      <%= link_to "All Pets", "/pets" %>
-      <%= link_to "All Shelters", "/shelters" %>
+      <ul>
+        <li><%= link_to "PETS", "/pets" %>
+        <li><%= link_to "SHELTERS", "/shelters" %>
+      </ul>
     </nav>
     <%= yield %>
   </body>

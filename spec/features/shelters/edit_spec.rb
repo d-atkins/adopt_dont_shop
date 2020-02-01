@@ -9,7 +9,7 @@ RSpec.describe "As a visitor: " do
         city: "Las Vegas",
         state: "WY",
         zip: "12345")
-      new_info = {
+      updated_info = {
         name: "Dog City",
         address: "1923 Dog Ln",
         city: "Doggington",
@@ -21,20 +21,20 @@ RSpec.describe "As a visitor: " do
 
       expect(current_path).to eq("/shelters/#{shelter_1.id}/edit")
 
-      fill_in 'name', with: new_info[:name]
-      fill_in 'address', with: new_info[:address]
-      fill_in 'city', with: new_info[:city]
-      fill_in 'state', with: new_info[:state]
-      fill_in 'zip', with: new_info[:zip]
+      fill_in 'name', with: updated_info[:name]
+      fill_in 'address', with: updated_info[:address]
+      fill_in 'city', with: updated_info[:city]
+      fill_in 'state', with: updated_info[:state]
+      fill_in 'zip', with: updated_info[:zip]
 
       click_button("Update Shelter")
 
       expect(current_path).to eq("/shelters/#{shelter_1.id}")
-      expect(page).to have_content("Name: #{new_info[:name]}")
-      expect(page).to have_content("Address: #{new_info[:address]}")
-      expect(page).to have_content("City: #{new_info[:city]}")
-      expect(page).to have_content("State: #{new_info[:state]}")
-      expect(page).to have_content("Zip: #{new_info[:zip]}")
+      expect(page).to have_content("Name: #{updated_info[:name]}")
+      expect(page).to have_content("Address: #{updated_info[:address]}")
+      expect(page).to have_content("City: #{updated_info[:city]}")
+      expect(page).to have_content("State: #{updated_info[:state]}")
+      expect(page).to have_content("Zip: #{updated_info[:zip]}")
 
       expect(page).to_not have_content("Name: #{shelter_1.name}")
       expect(page).to_not have_content("Address: #{shelter_1.address}")

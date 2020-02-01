@@ -1,5 +1,7 @@
 <div class="content">
-  <div class="big">
+  <div class="card show">
+    <%= link_to 'Update Shelter', "/shelters/#{@shelter.id}/edit", class: "left small" %>
+    <%= link_to 'Delete Shelter', "/shelters/#{@shelter.id}/", method: :delete, class: "right small" %><br>
     <p>Name: <%= @shelter.name %></p>
     <p>Address: <%= @shelter.address %></p>
     <p>City: <%= @shelter.city %></p>
@@ -7,6 +9,4 @@
     <p>Zip: <%= @shelter.zip %></p>
     <p><%= link_to("View this shelter's pets", "/shelters/#{@shelter.id}/pets", class: "name") %></p>
   </div>
-  <%= link_to 'Update Shelter', "/shelters/#{@shelter.id}/edit" %>
-  <%= link_to 'Delete Shelter', "/shelters/#{@shelter.id}/", method: :delete %>
 </div>

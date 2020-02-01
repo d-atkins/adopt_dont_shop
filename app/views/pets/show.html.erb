@@ -1,13 +1,12 @@
 <div class="content">
-  <div class="card show">
-    <p><img src="<%= @pet.image_path %>"></p>
+  <div class="card show pet">
+    <img src="<%= @pet.image_path %>">
+    <%= link_to 'Update Pet', "/pets/#{@pet.id}/edit", class: "left small" %>
+    <%= link_to 'Delete Pet', "/pets/#{@pet.id}", method: :delete, class: "right small" %><br>
     <p>Name: <%= @pet.name %></p>
     <p>Description: <%= @pet.description %></p>
     <p>Approximate age: <%= @pet.approximate_age %></p>
     <p>Sex: <%= @pet.sex %></p>
-    <p>Status: <%= @pet.status %></p>
-
-    <%= link_to 'Update Pet', "/pets/#{@pet.id}/edit" %>
-    <%= link_to 'Delete Pet', "/pets/#{@pet.id}", method: :delete %>
+    <p>Status: <%= @pet.status %></p><br><br>
   </div>
 </div>

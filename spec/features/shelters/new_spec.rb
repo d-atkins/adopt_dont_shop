@@ -26,6 +26,7 @@ RSpec.describe "As a visitor: " do
       click_link "New Shelter"
 
       expect(current_path).to eq("/shelters/new")
+      
       fill_in 'name', with: new_info[:name]
       fill_in 'address', with: new_info[:address]
       fill_in 'city', with: new_info[:city]

@@ -3,6 +3,6 @@ class Shelter < ApplicationRecord
   has_many :pets
 
   def pet_count
-    Pet.where(shelter: id).length
+    pets.length
   end
 end

@@ -2,7 +2,7 @@
   <h1><%= link_to(@shelter.name, "/shelters/#{@shelter.id}", class: "name") %> - Pets</h1>
   <p><%= link_to 'Add a New Adoptable Pet', "/shelters/#{@shelter.id}/pets/new" %></p>
   <% @pets.each do |pet| %>
-    <div class="card">
+    <div class="card" id="pet-<%= pet.id %>">
       <h3>Name: <%= link_to(pet.name, "/pets/#{pet.id}", class: "right big name") %></h3>
       <p><%= image_tag(pet.image_path) %></p><br>
       <p>Age: <span class='right big'>~<%= pet.approximate_age %></span></p>

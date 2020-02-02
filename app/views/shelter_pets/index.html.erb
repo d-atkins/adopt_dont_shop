@@ -1,5 +1,5 @@
 <div class="content">
-  <h1><%= link_to(@shelter.name, "/shelters/#{@shelter.id}", class: "name") %> - Pets (total: <%= @shelter.pet_count %>)</h1>
+  <h1><%= link_to(@shelter.name, "/shelters/#{@shelter.id}", class: "name") %> - Pets (total: <%= @pet_count %>)</h1>
   <p><%= link_to 'Add a New Adoptable Pet', "/shelters/#{@shelter.id}/pets/new" %></p>
   <% @pets.each do |pet| %>
     <div class="card" id="pet-<%= pet.id %>">

@@ -23,8 +23,7 @@ RSpec.describe "As a visitor:" do
         name: "Snoop Dogg",
         description: "now you know you in trouble",
         approximate_age: "like 60 years old",
-        sex: "alpha male"
-        }
+        sex: "alpha male"}
 
       visit "/pets/#{pet_1.id}"
       click_link("Update Pet")

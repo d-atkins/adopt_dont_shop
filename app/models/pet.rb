@@ -5,4 +5,12 @@ class Pet < ApplicationRecord
   def self.sort_by_status
     Pet.order(:status)
   end
+
+  def self.adoptable
+    Pet.where(status: "adoptable")
+  end
+
+  def self.pending
+    Pet.where(status: "pending")
+  end
 end

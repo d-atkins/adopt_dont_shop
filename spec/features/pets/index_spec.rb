@@ -83,5 +83,32 @@ RSpec.describe "As a visitor:" do
       expected_matches = ["Snoopy", "Capy'n Hook", "Nana"].zip(page.all(".card"))
       expected_matches.each { |name, div| expect(div).to have_content(name) }
     end
+
+    it "I can click a link to show only adoptable pets" do
+      click_link("Show adoptable pets only")
+
+      expect(page).to have_current_path("/pets?adoptable=true")
+
+      within("#pet-#{@pet_1.id}") do
+        expect(page).to have_css("img[src*='#{@pet_1.image}']")
+        expect(page).to have_content(@pet_1.name)
+        expect(page).to have_content(@pet_1.approximate_age)
+        expect(page).to have_content(@pet_1.sex)
+        expect(page).to have_content(@pet_1.shelter.name)
+      end
+
+      within("#pet-#{@pet_3.id}") do
+        expect(page).to have_css("img[src*='#{@pet_3.image}']")
+        expect(page).to have_content(@pet_3.name)
+        expect(page).to have_content(@pet_3.approximate_age)
+        expect(page).to have_content(@pet_3.sex)
+        expect(page).to have_content(@pet_3.shelter.name)
+      end
+
+      expect(page).to_not have_css("img[src*='#{@pet_2.image}']")
+      expect(page).to_not have_content(@pet_2.name)
+      expect(page).to_not have_content(@pet_2.approximate_age)
+      expect(page).to_not have_content(@pet_2.sex)
+    end
   end
 end

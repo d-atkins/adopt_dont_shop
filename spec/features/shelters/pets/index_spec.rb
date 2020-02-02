@@ -43,15 +43,19 @@ RSpec.describe "As a visitor: " do
     end
 
     it "I can see each pet that can be adopted from that shelter" do
-      expect(page).to have_css("img[src*='#{@pet_1.image_path}']")
-      expect(page).to have_content(@pet_1.name)
-      expect(page).to have_content(@pet_1.approximate_age)
-      expect(page).to have_content(@pet_1.sex)
+      within("#pet-#{@pet_1.id}") do
+        expect(page).to have_css("img[src*='#{@pet_1.image_path}']")
+        expect(page).to have_content(@pet_1.name)
+        expect(page).to have_content(@pet_1.approximate_age)
+        expect(page).to have_content(@pet_1.sex)
+      end
 
-      expect(page).to have_css("img[src*='#{@pet_2.image_path}']")
-      expect(page).to have_content(@pet_2.name)
-      expect(page).to have_content(@pet_2.approximate_age)
-      expect(page).to have_content(@pet_2.sex)
+      within("#pet-#{@pet_2.id}") do
+        expect(page).to have_css("img[src*='#{@pet_2.image_path}']")
+        expect(page).to have_content(@pet_2.name)
+        expect(page).to have_content(@pet_2.approximate_age)
+        expect(page).to have_content(@pet_2.sex)
+      end
 
       expect(page).to_not have_css("img[src*='#{@pet_3.image_path}']")
       expect(page).to_not have_content(@pet_3.name)
@@ -60,26 +64,26 @@ RSpec.describe "As a visitor: " do
     end
 
     it "I can get to the edit page of a pet" do
-      click_link("Update Pet", match: :first)
+      within("#pet-#{@pet_1.id}") { click_link("Update Pet") }
 
       expect(current_path).to eq("/pets/#{@pet_1.id}/edit")
     end
 
     it "I can delete a pet" do
-      click_link("Delete Pet", match: :first)
+      within("#pet-#{@pet_1.id}") { click_link("Delete Pet") }
 
       expect(current_path).to eq("/pets")
       expect(page).to_not have_content(@pet_1.name)
     end
 
     it "I can click a shelter name to get to its show page" do
-      click_link(@dog_city.name, match: :first)
+      click_link(@dog_city.name)
 
       expect(current_path).to eq("/shelters/#{@dog_city.id}")
     end
 
     it "I can click a pet name to get to its show page" do
-      click_link(@pet_1.name, match: :first)
+      within("#pet-#{@pet_1.id}") { click_link(@pet_1.name) }
 
       expect(current_path).to eq("/pets/#{@pet_1.id}")
     end

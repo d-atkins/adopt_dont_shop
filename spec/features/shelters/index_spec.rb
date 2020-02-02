@@ -19,18 +19,22 @@ RSpec.describe "As a visitor: " do
     end
 
     it "I can see names of all of the shelters" do
-      expect(page).to have_content(@shelter_1.name)
-      expect(page).to have_content(@shelter_2.name)
+      within("#shelter-#{@shelter_1.id}") do
+        expect(page).to have_content(@shelter_1.name)
+      end
+      within("#shelter-#{@shelter_2.id}") do
+        expect(page).to have_content(@shelter_2.name)
+      end
     end
 
     it "I can get to the edit page of a shelter" do
-      click_link("Update Shelter", match: :first)
+      within("#shelter-#{@shelter_1.id}") { click_link("Update Shelter") }
 
       expect(current_path).to eq("/shelters/#{@shelter_1.id}/edit")
     end
 
     it "I can delete a shelter" do
-      click_link("Delete Shelter", match: :first)
+      within("#shelter-#{@shelter_1.id}") { click_link("Delete Shelter") }
 
       expect(current_path).to eq("/shelters")
       expect(page).to_not have_content(@shelter_1.name)
@@ -38,9 +42,9 @@ RSpec.describe "As a visitor: " do
     end
 
     it "I can click a shelter name to get to its show page" do
-      click_link(@shelter_2.name, match: :first)
+      within("#shelter-#{@shelter_1.id}") { click_link(@shelter_1.name) }
 
-      expect(current_path).to eq("/shelters/#{@shelter_2.id}")
+      expect(current_path).to eq("/shelters/#{@shelter_1.id}")
     end
   end
 end

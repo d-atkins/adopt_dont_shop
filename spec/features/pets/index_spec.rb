@@ -29,40 +29,45 @@ RSpec.describe "As a visitor: " do
     end
 
     it "I can see a list of all pets and their information" do
-      expect(page).to have_css("img[src*='#{@pet_1.image_path}']")
-      expect(page).to have_content(@pet_1.name)
-      expect(page).to have_content(@pet_1.approximate_age)
-      expect(page).to have_content(@pet_1.sex)
-      expect(page).to have_content(@pet_1.shelter.name)
+      within("#pet-#{@pet_1.id}") do
+        expect(page).to have_css("img[src*='#{@pet_1.image_path}']")
+        expect(page).to have_content(@pet_1.name)
+        expect(page).to have_content(@pet_1.approximate_age)
+        expect(page).to have_content(@pet_1.sex)
+        expect(page).to have_content(@pet_1.shelter.name)
+      end
 
-      expect(page).to have_css("img[src*='#{@pet_2.image_path}']")
-      expect(page).to have_content(@pet_2.name)
-      expect(page).to have_content(@pet_2.approximate_age)
-      expect(page).to have_content(@pet_2.sex)
-      expect(page).to have_content(@pet_2.shelter.name)
+      within("#pet-#{@pet_2.id}") do
+        expect(page).to have_css("img[src*='#{@pet_2.image_path}']")
+        expect(page).to have_content(@pet_2.name)
+        expect(page).to have_content(@pet_2.approximate_age)
+        expect(page).to have_content(@pet_2.sex)
+        expect(page).to have_content(@pet_2.shelter.name)
+      end
     end
 
     it "I can get to the edit page of a pet" do
-      click_link("Update Pet", match: :first)
+
+      within("#pet-#{@pet_1.id}") { click_link("Update Pet") }
 
       expect(current_path).to eq("/pets/#{@pet_1.id}/edit")
     end
 
     it "I can delete a pet" do
-      click_link("Delete Pet", match: :first)
+      within("#pet-#{@pet_1.id}") { click_link("Delete Pet") }
 
       expect(current_path).to eq("/pets")
       expect(page).to_not have_content(@pet_1.name)
     end
 
     it "I can click a shelter name to get to its shelter show page" do
-      click_link(@dog_city.name, match: :first)
+      within("#pet-#{@pet_1.id}") { click_link(@dog_city.name) }
 
       expect(current_path).to eq("/shelters/#{@dog_city.id}")
     end
 
     it "I can click a pet name to get to its pet show page" do
-      click_link(@pet_1.name, match: :first)
+      within("#pet-#{@pet_1.id}") { click_link(@pet_1.name) }
 
       expect(current_path).to eq("/pets/#{@pet_1.id}")
     end

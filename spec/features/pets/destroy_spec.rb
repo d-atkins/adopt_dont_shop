@@ -15,16 +15,14 @@ RSpec.describe "As a visitor:" do
         description: "beagle pup eh",
         approximate_age: "6 months old",
         sex: "male",
-        shelter: dog_city,
-        status: "adoptable")
+        shelter: dog_city)
       pet_2 = Pet.create(
         image: "https://upload.wikimedia.org/wikipedia/commons/2/2b/WelshCorgi.jpeg",
         name: "Nana",
         description: "super cute dog in need of home",
         approximate_age: "4 years old",
         sex: "female",
-        shelter: dog_city,
-        status: "adoptable")
+        shelter: dog_city)
 
       visit "/pets/#{pet_2.id}"
       click_link("Delete Pet")

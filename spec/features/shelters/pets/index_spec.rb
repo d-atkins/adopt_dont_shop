@@ -21,24 +21,21 @@ RSpec.describe "As a visitor:" do
         description: "beagle pup eh",
         approximate_age: "6 months old",
         sex: "male",
-        shelter: @dog_city,
-        status: "adoptable")
+        shelter: @dog_city)
       @pet_2 = Pet.create!(
         image: "https://upload.wikimedia.org/wikipedia/commons/2/2b/WelshCorgi.jpeg",
         name: "Nana",
         description: "super cute dog in need of home",
         approximate_age: "4 years old",
         sex: "female",
-        shelter: @dog_city,
-        status: "adoptable")
+        shelter: @dog_city)
       @pet_3 = Pet.create!(
         image: "https://cdn.mos.cms.futurecdn.net/g8PyY6xAhcndpQLLSkdPf-320-80.jpg",
         name: "Capy'n Hook",
         description: "dread of the seven seas",
         approximate_age: "400 years old?",
         sex: "male",
-        shelter: @cdp,
-        status: "adoptable")
+        shelter: @cdp)
       visit "/shelters/#{@dog_city.id}/pets"
     end
 

@@ -108,7 +108,28 @@ RSpec.describe "As a visitor:" do
       expect(page).to_not have_css("img[src*='#{@pet_2.image}']")
       expect(page).to_not have_content(@pet_2.name)
       expect(page).to_not have_content(@pet_2.approximate_age)
-      expect(page).to_not have_content(@pet_2.sex)
+    end
+
+    it "I can click a link to show only pending pets" do
+      click_link("Show pending pets only")
+
+      expect(page).to have_current_path("/pets?adoptable=false")
+
+      within("#pet-#{@pet_2.id}") do
+        expect(page).to have_css("img[src*='#{@pet_2.image}']")
+        expect(page).to have_content(@pet_2.name)
+        expect(page).to have_content(@pet_2.approximate_age)
+        expect(page).to have_content(@pet_2.sex)
+        expect(page).to have_content(@pet_2.shelter.name)
+      end
+
+      expect(page).to_not have_css("img[src*='#{@pet_1.image}']")
+      expect(page).to_not have_content(@pet_1.name)
+      expect(page).to_not have_content(@pet_1.approximate_age)
+
+      expect(page).to_not have_css("img[src*='#{@pet_3.image}']")
+      expect(page).to_not have_content(@pet_3.name)
+      expect(page).to_not have_content(@pet_3.approximate_age)
     end
   end
 end

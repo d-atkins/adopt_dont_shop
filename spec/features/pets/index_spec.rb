@@ -22,7 +22,16 @@ RSpec.describe "As a visitor:" do
         description: "super cute dog in need of home",
         approximate_age: "4 years old",
         sex: "female",
+        status: "pending",
         shelter: @dog_city)
+      @pet_3 = Pet.create!(
+        image: "https://cdn.mos.cms.futurecdn.net/g8PyY6xAhcndpQLLSkdPf-320-80.jpg",
+        name: "Capy'n Hook",
+        description: "dread of the seven seas",
+        approximate_age: "400 years old?",
+        sex: "male",
+        shelter: @dog_city)
+      visit "/shelters/#{@dog_city.id}/pets"
       visit '/pets'
     end
 
@@ -68,6 +77,11 @@ RSpec.describe "As a visitor:" do
       within("#pet-#{@pet_1.id}") { click_link(@pet_1.name) }
 
       expect(current_path).to eq("/pets/#{@pet_1.id}")
+    end
+
+    it "I see adoptable pets listed before pending pets" do
+      expected_matches = ["Snoopy", "Capy'n Hook", "Nana"].zip(page.all(".card"))
+      expected_matches.each { |name, div| expect(div).to have_content(name) }
     end
   end
 end

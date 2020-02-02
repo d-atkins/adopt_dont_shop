@@ -84,5 +84,9 @@ RSpec.describe "As a visitor:" do
 
       expect(current_path).to eq("/pets/#{@pet_1.id}")
     end
+
+    it "I can see the shelter's pet count" do
+      expect(page).to have_content("Pets (total: 2)")
+    end
   end
 end

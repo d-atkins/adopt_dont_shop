@@ -1,6 +1,6 @@
 <div class="content">
   <div class="card show pet">
-    <img src="<%= @pet.image_path %>">
+    <%= image_tag(@pet.image) %>
     <%= link_to 'Update Pet', "/pets/#{@pet.id}/edit", class: "left small" %>
     <%= link_to 'Delete Pet', "/pets/#{@pet.id}", method: :delete, class: "right small" %><br>
     <p>Name: <%= @pet.name %></p>

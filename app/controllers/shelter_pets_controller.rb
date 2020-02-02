@@ -1,7 +1,8 @@
 class ShelterPetsController < ApplicationController
   def index
-    @pets = Shelter.find(params[:shelter_id]).pets
     @shelter = Shelter.find(params[:shelter_id])
+    @pets = @shelter.pets.sort_by_status
+    @pet_count = @shelter.pet_count
   end
 
   def new
@@ -17,6 +18,6 @@ class ShelterPetsController < ApplicationController
   private
 
     def pet_params
-      params.permit(:image_path, :name, :description, :approximate_age, :sex, :shelter_id)
+      params.permit(:image, :name, :description, :approximate_age, :sex, :shelter_id)
     end
 end

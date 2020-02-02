@@ -3,7 +3,7 @@
   <% @pets.each do |pet| %>
     <div class="card" id="pet-<%= pet.id %>">
       <h3>Name: <%= link_to(pet.name, "pets/#{pet.id}", class: "right big name") %></h3>
-      <p><%= image_tag(pet.image_path) %></p>
+      <p><%= image_tag(pet.image) %></p>
       <p>Age: <span class='right big'>~<%= pet.approximate_age %></span></p>
       <p>Sex: <span class='right big'><%= pet.sex %></span></p>
       <p>Shelter: <%= link_to(pet.shelter.name, "/shelters/#{pet.shelter.id}", class: "right big") %></p><br>

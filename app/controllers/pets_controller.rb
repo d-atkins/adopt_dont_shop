@@ -1,6 +1,10 @@
 class PetsController < ApplicationController
+  def welcome
+    redirect_to '/pets'
+  end
+
   def index
-    @pets = Pet.all
+    @pets = Pet.sort_by_status
   end
 
   def show
@@ -27,6 +31,6 @@ class PetsController < ApplicationController
   private
 
     def pet_params
-      params.permit(:image_path, :name, :description, :approximate_age, :sex)
+      params.permit(:image, :name, :description, :approximate_age, :sex)
     end
 end

@@ -1,8 +1,8 @@
 <div class="content">
   <h3>Enter details for a new adoptable pet:</h3>
   <%= form_tag("/shelters/#{@shelter_id}/pets") do %>
-    <%= label_tag :image_path %><br>
-    <%= text_field_tag :image_path %><br><br>
+    <%= label_tag :image %><br>
+    <%= text_field_tag :image %><br><br>
     <%= label_tag :name %><br>
     <%= text_field_tag :name %><br><br>
     <%= label_tag :description %><br>

@@ -1,8 +1,8 @@
 <div class="content">
   <h3>Update pet:</h3>
   <%= form_tag("/pets/#{@pet.id}", method: :patch) do %>
-    <%= label_tag :image_path %><br>
-    <%= text_field_tag :image_path, @pet.image_path %><br><br>
+    <%= label_tag :image %><br>
+    <%= text_field_tag :image, @pet.image %><br><br>
     <%= label_tag :name %><br>
     <%= text_field_tag :name, @pet.name %><br><br>
     <%= label_tag :description %><br>

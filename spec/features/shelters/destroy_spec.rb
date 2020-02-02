@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "As a visitor: " do
+RSpec.describe "As a visitor:" do
   describe "from the shelter show page" do
     it "I can delete a shelter from the database" do
       shelter_1 = Shelter.create!(
@@ -20,8 +20,8 @@ RSpec.describe "As a visitor: " do
       click_link("Delete Shelter")
 
       expect(current_path).to eq('/shelters')
-      expect(page).to have_content('Name: ' + shelter_1.name)
-      expect(page).to_not have_content('Name: ' + shelter_2.name)
+      expect(page).to have_content("Name: #{shelter_1.name}")
+      expect(page).to_not have_content(shelter_2.name)
     end
   end
 end

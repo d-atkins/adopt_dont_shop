@@ -21,6 +21,7 @@ RSpec.describe "As a visitor:" do
         description: "beagle pup eh",
         approximate_age: "6 months old",
         sex: "male",
+        status: "pending",
         shelter: @dog_city)
       @pet_2 = Pet.create!(
         image: "https://upload.wikimedia.org/wikipedia/commons/2/2b/WelshCorgi.jpeg",
@@ -87,6 +88,11 @@ RSpec.describe "As a visitor:" do
 
     it "I can see the shelter's pet count" do
       expect(page).to have_content("Pets (total: 2)")
+    end
+
+    it "I see adoptable pets listed before pending pets" do
+      expected_matches = ["Nana", "Snoopy"].zip(page.all(".card"))
+      expected_matches.each { |name, div| expect(div).to have_content(name) }
     end
   end
 end

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "As a visitor: " do
+RSpec.describe "As a visitor:" do
   describe "from the shelter show page" do
     it "I can see the info of the shelter" do
       shelter_1 = Shelter.create!(
@@ -23,7 +23,7 @@ RSpec.describe "As a visitor: " do
       expect(page).to have_content("City: #{shelter_1.city}", count: 1)
       expect(page).to have_content("State: #{shelter_1.state}", count: 1)
       expect(page).to have_content("Zip: #{shelter_1.zip}", count: 1)
-      
+
       expect(page).to_not have_content(shelter_2.name)
       expect(page).to_not have_content(shelter_2.address)
       expect(page).to_not have_content(shelter_2.city)

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "As a visitor: " do
+RSpec.describe "As a visitor:" do
   describe "from the pet show page" do
     it "I can see the info of the pet" do
       dog_city = Shelter.create!(
@@ -34,7 +34,7 @@ RSpec.describe "As a visitor: " do
       expect(page).to have_content("Approximate age: #{pet_1.approximate_age}", count: 1)
       expect(page).to have_content("Sex: #{pet_1.sex}", count: 1)
       expect(page).to have_content("Status: #{pet_1.status}", count: 1)
-      
+
       expect(page).to_not have_content(pet_2.name)
       expect(page).to_not have_content(pet_2.description)
       expect(page).to_not have_content(pet_2.approximate_age)

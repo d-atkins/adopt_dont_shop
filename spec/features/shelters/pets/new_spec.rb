@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "As a visitor: " do
+RSpec.describe "As a visitor:" do
     describe 'from the shelter pets index page' do
     it 'I can get to the new pet page, fill out the form, and submit it' do
       dog_city = Shelter.create!(
@@ -40,7 +40,7 @@ RSpec.describe "As a visitor: " do
       expect(page).to have_content(pet_1.name)
       expect(page).to have_content(pet_1.approximate_age)
       expect(page).to have_content(pet_1.sex)
-      
+
       expect(page).to have_css("img[src*='#{new_pet_info[:image_path]}']")
       expect(page).to have_content(new_pet_info[:name])
       expect(page).to have_content(new_pet_info[:approximate_age])

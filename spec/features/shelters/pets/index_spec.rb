@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "As a visitor: " do
+RSpec.describe "As a visitor:" do
   describe "from the shelter/pets index" do
     before :each do
       @dog_city = Shelter.create!(

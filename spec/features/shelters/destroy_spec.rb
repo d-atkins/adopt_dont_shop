@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "As a visitor: " do
+RSpec.describe "As a visitor:" do
   describe "from the shelter show page" do
     it "I can delete a shelter from the database" do
       shelter_1 = Shelter.create!(

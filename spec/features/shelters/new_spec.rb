@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "As a visitor: " do
+RSpec.describe "As a visitor:" do
   describe "from the shelters index page" do
     it "I can get to the new shelter page, fill the form, and submit it" do
       Shelter.create!(

@@ -141,3 +141,7 @@ nav a:hover {
 .delete {
   color: red;
 }
+
+.spaced {
+  margin-right: 15px;
+}

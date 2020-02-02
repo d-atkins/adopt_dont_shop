@@ -5,7 +5,13 @@ class PetsController < ApplicationController
 
   def index
     if params[:adoptable]
-        (params[:adoptable] == true)? Pet.adoptable : Pet.pending
+      if (params[:adoptable] == 'true')
+        @pets = Pet.adoptable
+        @adoptable = true
+      else
+        @pets = Pet.pending
+        @pending = true
+      end
     else
       @pets = Pet.sort_by_status
     end

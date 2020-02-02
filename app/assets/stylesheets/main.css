@@ -109,7 +109,7 @@ nav a:hover {
   display: block;
 }
 
-.card#shelter {
+.card.shelter {
   font-size: 125%;
   background: linear-gradient(180deg, white 60%, #FFDAC1 60%);
 }

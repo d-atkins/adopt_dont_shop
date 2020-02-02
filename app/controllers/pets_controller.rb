@@ -1,4 +1,8 @@
 class PetsController < ApplicationController
+  def welcome
+    redirect_to '/pets'
+  end
+
   def index
     @pets = Pet.sort_by_status
   end

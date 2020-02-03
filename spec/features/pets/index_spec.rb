@@ -35,6 +35,12 @@ RSpec.describe "As a visitor:" do
       visit '/pets'
     end
 
+    it "I am redirected to the pets index when I visit the root page" do
+      visit '/'
+
+      expect(current_path).to eq('/pets')
+    end
+
     it "I can see a list of all pets and their information" do
       within("#pet-#{@pet_1.id}") do
         expect(page).to have_css("img[src*='#{@pet_1.image}']")

@@ -44,7 +44,7 @@ RSpec.describe "As a visitor:" do
       expect(page).to have_content(updated_info[:description], count: 1)
       expect(page).to have_content(updated_info[:approximate_age], count: 1)
       expect(page).to have_content(updated_info[:sex], count: 1)
-      expect(page).to have_content("adoptable", count: 1)
+      expect(page).to have_content("Adoptable", count: 1)
 
       expect(page).to_not have_css("img[src*='#{pet_2.image}']")
       expect(page).to_not have_content(pet_2.name)

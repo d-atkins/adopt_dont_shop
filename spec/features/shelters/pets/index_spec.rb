@@ -21,7 +21,7 @@ RSpec.describe "As a visitor:" do
         description: "beagle pup eh",
         approximate_age: "6 months old",
         sex: "male",
-        status: "pending",
+        status: "Pending",
         shelter: @dog_city)
       @pet_2 = Pet.create!(
         image: "https://upload.wikimedia.org/wikipedia/commons/2/2b/WelshCorgi.jpeg",

@@ -7,10 +7,10 @@ class Pet < ApplicationRecord
   end
 
   def self.adoptable
-    Pet.where(status: "adoptable")
+    Pet.where(status: "Adoptable")
   end
 
   def self.pending
-    Pet.where(status: "pending")
+    Pet.where(status: "Pending")
   end
 end

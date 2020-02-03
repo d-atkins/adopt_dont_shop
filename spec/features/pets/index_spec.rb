@@ -22,7 +22,7 @@ RSpec.describe "As a visitor:" do
         description: "super cute dog in need of home",
         approximate_age: "4 years old",
         sex: "female",
-        status: "pending",
+        status: "Pending",
         shelter: @dog_city)
       @pet_3 = Pet.create!(
         image: "https://cdn.mos.cms.futurecdn.net/g8PyY6xAhcndpQLLSkdPf-320-80.jpg",

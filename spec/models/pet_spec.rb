@@ -40,7 +40,7 @@ RSpec.describe Pet, type: :model do
         description: "dread of the seven seas",
         approximate_age: "400 years old?",
         sex: "male",
-        status: "pending",
+        status: "Pending",
         shelter: @dog_city)
       @p2 = Pet.create!(
         image: "https://i.pinimg.com/originals/a9/cf/64/a9cf6473ca327409108ab02d15cc06b0.jpg",
@@ -48,7 +48,7 @@ RSpec.describe Pet, type: :model do
         description: "beagle pup eh",
         approximate_age: "6 months old",
         sex: "male",
-        status: "pending",
+        status: "Pending",
         shelter: @dog_city)
       @a3 = Pet.create!(
         image: "https://upload.wikimedia.org/wikipedia/commons/2/2b/WelshCorgi.jpeg",
@@ -63,7 +63,7 @@ RSpec.describe Pet, type: :model do
         description: "dread of the seven seas",
         approximate_age: "400 years old?",
         sex: "male",
-        status: "pending",
+        status: "Pending",
         shelter: @dog_city)
     end
 

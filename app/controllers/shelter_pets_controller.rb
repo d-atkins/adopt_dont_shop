@@ -4,11 +4,11 @@ class ShelterPetsController < ApplicationController
     if params[:adoptable]
       if (params[:adoptable] == 'true')
         @pets = @shelter.pets.adoptable
-        @pet_count = @shelter.pet_count("adoptable")
+        @pet_count = @shelter.pet_count("Adoptable")
         @adoptable = true
       else
         @pets = @shelter.pets.pending
-        @pet_count = @shelter.pet_count("pending")
+        @pet_count = @shelter.pet_count("Pending")
         @pending = true
       end
     else

@@ -12,14 +12,14 @@ megs = Shelter.create(name: "Meg's Shelter", address: "150 Main Street", city: "
 Pet.create(
   image: "https://i.pinimg.com/originals/a9/cf/64/a9cf6473ca327409108ab02d15cc06b0.jpg",
   name: "Athena",
-  description: "butthead",
-  approximate_age: "1",
+  description: "Butthead",
+  age: "1",
   sex: "F",
   shelter: mikes)
 Pet.create(
   image: "https://upload.wikimedia.org/wikipedia/commons/2/2b/WelshCorgi.jpeg",
   name: "Odell",
   description: "good dog",
-  approximate_age: "4",
+  age: "4",
   sex: "M",
   shelter: megs)

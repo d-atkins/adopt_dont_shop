@@ -35,21 +35,21 @@ RSpec.describe Shelter, type: :model do
         image: "https://i.pinimg.com/originals/a9/cf/64/a9cf6473ca327409108ab02d15cc06b0.jpg",
         name: "Snoopy",
         description: "beagle pup eh",
-        approximate_age: "6 months old",
+        age: "6 months old",
         sex: "male",
         shelter: dog_city)
       Pet.create(
         image: "https://upload.wikimedia.org/wikipedia/commons/2/2b/WelshCorgi.jpeg",
         name: "Nana",
         description: "super cute dog in need of home",
-        approximate_age: "4 years old",
+        age: "4 years old",
         sex: "female",
         shelter: cdp)
       Pet.create(
         image: "https://cdn.mos.cms.futurecdn.net/g8PyY6xAhcndpQLLSkdPf-320-80.jpg",
         name: "Capy'n Hook",
         description: "dread of the seven seas",
-        approximate_age: "400 years old?",
+        age: "400 years old?",
         sex: "male",
         shelter: cdp)
 

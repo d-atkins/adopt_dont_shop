@@ -19,7 +19,7 @@ RSpec.describe "As a visitor:" do
         image: "https://i.pinimg.com/originals/a9/cf/64/a9cf6473ca327409108ab02d15cc06b0.jpg",
         name: "Snoopy",
         description: "beagle pup eh",
-        approximate_age: "6 months old",
+        age: "6 months old",
         sex: "male",
         status: "Pending",
         shelter: @dog_city)
@@ -27,14 +27,14 @@ RSpec.describe "As a visitor:" do
         image: "https://upload.wikimedia.org/wikipedia/commons/2/2b/WelshCorgi.jpeg",
         name: "Nana",
         description: "super cute dog in need of home",
-        approximate_age: "4 years old",
+        age: "4 years old",
         sex: "female",
         shelter: @dog_city)
       @pet_3 = Pet.create!(
         image: "https://cdn.mos.cms.futurecdn.net/g8PyY6xAhcndpQLLSkdPf-320-80.jpg",
         name: "Capy'n Hook",
         description: "dread of the seven seas",
-        approximate_age: "400 years old?",
+        age: "400 years old?",
         sex: "male",
         shelter: @cdp)
       visit "/shelters/#{@dog_city.id}/pets"
@@ -44,20 +44,20 @@ RSpec.describe "As a visitor:" do
       within("#pet-#{@pet_1.id}") do
         expect(page).to have_css("img[src*='#{@pet_1.image}']")
         expect(page).to have_content(@pet_1.name)
-        expect(page).to have_content(@pet_1.approximate_age)
+        expect(page).to have_content(@pet_1.age)
         expect(page).to have_content(@pet_1.sex)
       end
 
       within("#pet-#{@pet_2.id}") do
         expect(page).to have_css("img[src*='#{@pet_2.image}']")
         expect(page).to have_content(@pet_2.name)
-        expect(page).to have_content(@pet_2.approximate_age)
+        expect(page).to have_content(@pet_2.age)
         expect(page).to have_content(@pet_2.sex)
       end
 
       expect(page).to_not have_css("img[src*='#{@pet_3.image}']")
       expect(page).to_not have_content(@pet_3.name)
-      expect(page).to_not have_content(@pet_3.approximate_age)
+      expect(page).to_not have_content(@pet_3.age)
       expect(page).to_not have_content(@pet_3.shelter.name)
     end
 
@@ -103,13 +103,13 @@ RSpec.describe "As a visitor:" do
       within("#pet-#{@pet_2.id}") do
         expect(page).to have_css("img[src*='#{@pet_2.image}']")
         expect(page).to have_content(@pet_2.name)
-        expect(page).to have_content(@pet_2.approximate_age)
+        expect(page).to have_content(@pet_2.age)
         expect(page).to have_content(@pet_2.sex)
       end
 
       expect(page).to_not have_css("img[src*='#{@pet_1.image}']")
       expect(page).to_not have_content(@pet_1.name)
-      expect(page).to_not have_content(@pet_1.approximate_age)
+      expect(page).to_not have_content(@pet_1.age)
     end
 
     it "I can click a link to show only pending pets" do
@@ -120,13 +120,13 @@ RSpec.describe "As a visitor:" do
       within("#pet-#{@pet_1.id}") do
         expect(page).to have_css("img[src*='#{@pet_1.image}']")
         expect(page).to have_content(@pet_1.name)
-        expect(page).to have_content(@pet_1.approximate_age)
+        expect(page).to have_content(@pet_1.age)
         expect(page).to have_content(@pet_1.sex)
       end
 
       expect(page).to_not have_css("img[src*='#{@pet_2.image}']")
       expect(page).to_not have_content(@pet_2.name)
-      expect(page).to_not have_content(@pet_2.approximate_age)
+      expect(page).to_not have_content(@pet_2.age)
     end
   end
 end

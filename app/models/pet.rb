@@ -1,5 +1,5 @@
 class Pet < ApplicationRecord
-  validates_presence_of :image, :name, :description, :approximate_age, :sex, :status
+  validates_presence_of :image, :name, :description, :age, :sex, :status
   belongs_to :shelter
 
   def self.sort_by_status

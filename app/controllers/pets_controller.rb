@@ -4,7 +4,17 @@ class PetsController < ApplicationController
   end
 
   def index
-    @pets = Pet.sort_by_status
+    if params[:adoptable]
+      if (params[:adoptable] == 'true')
+        @pets = Pet.adoptable
+        @adoptable = true
+      else
+        @pets = Pet.pending
+        @pending = true
+      end
+    else
+      @pets = Pet.sort_by_status
+    end
   end
 
   def show
@@ -31,6 +41,6 @@ class PetsController < ApplicationController
   private
 
     def pet_params
-      params.permit(:image, :name, :description, :approximate_age, :sex)
+      params.permit(:image, :name, :description, :age, :sex)
     end
 end

@@ -94,5 +94,39 @@ RSpec.describe "As a visitor:" do
       expected_matches = ["Nana", "Snoopy"].zip(page.all(".card"))
       expected_matches.each { |name, div| expect(div).to have_content(name) }
     end
+
+    it "I can click a link to show only adoptable pets" do
+      click_link("Show adoptable pets only")
+
+      expect(page).to have_current_path("/shelters/#{@dog_city.id}/pets?adoptable=true")
+
+      within("#pet-#{@pet_2.id}") do
+        expect(page).to have_css("img[src*='#{@pet_2.image}']")
+        expect(page).to have_content(@pet_2.name)
+        expect(page).to have_content(@pet_2.approximate_age)
+        expect(page).to have_content(@pet_2.sex)
+      end
+
+      expect(page).to_not have_css("img[src*='#{@pet_1.image}']")
+      expect(page).to_not have_content(@pet_1.name)
+      expect(page).to_not have_content(@pet_1.approximate_age)
+    end
+
+    it "I can click a link to show only pending pets" do
+      click_link("Show pending pets only")
+
+      expect(page).to have_current_path("/shelters/#{@dog_city.id}/pets?adoptable=false")
+
+      within("#pet-#{@pet_1.id}") do
+        expect(page).to have_css("img[src*='#{@pet_1.image}']")
+        expect(page).to have_content(@pet_1.name)
+        expect(page).to have_content(@pet_1.approximate_age)
+        expect(page).to have_content(@pet_1.sex)
+      end
+
+      expect(page).to_not have_css("img[src*='#{@pet_2.image}']")
+      expect(page).to_not have_content(@pet_2.name)
+      expect(page).to_not have_content(@pet_2.approximate_age)
+    end
   end
 end

@@ -24,7 +24,7 @@ RSpec.describe "As a visitor:" do
         sex: "male"}
 
       visit "/shelters/#{dog_city.id}/pets"
-      click_link('Add a New Adoptable Pet')
+      click_link('Create Pet')
 
       expect(current_path).to eq("/shelters/#{dog_city.id}/pets/new")
 
